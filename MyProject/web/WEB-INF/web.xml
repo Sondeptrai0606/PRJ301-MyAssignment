@@ -4,9 +4,17 @@
         <servlet-name>TimeTable</servlet-name>
         <servlet-class>controller.TimeTable</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckAttend</servlet-name>
+        <servlet-class>controller.CheckAttend</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>TimeTable</servlet-name>
         <url-pattern>/TimeTable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAttend</servlet-name>
+        <url-pattern>/CheckAttend</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
