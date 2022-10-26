@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
+        <servlet-name>ListStudent</servlet-name>
+        <servlet-class>controller.DisplayGroup</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Attendance</servlet-name>
+        <servlet-class>controller.Check</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>TimeTable</servlet-name>
-        <servlet-class>controller.TimeTable</servlet-class>
+        <servlet-class>controller.Schedule</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CheckAttend</servlet-name>
         <servlet-class>controller.CheckAttend</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>TimeTable</servlet-name>
-        <url-pattern>/TimeTable</url-pattern>
-    </servlet-mapping>
+    <servlet>
+        <servlet-name>GroupStudent</servlet-name>
+        <servlet-class>controller.GroupStudent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TeachingSchedule</servlet-name>
+        <servlet-class>controller.TeachingSchedule</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Timetable</servlet-name>
+        <servlet-class>controller.Timetable</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateCheckattend</servlet-name>
+        <servlet-class>controller.UpdateCheckattend</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckAttend</servlet-name>
         <url-pattern>/CheckAttend</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GroupStudent</servlet-name>
+        <url-pattern>/GroupStudent</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TeachingSchedule</servlet-name>
+        <url-pattern>/TeachingSchedule</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Timetable</servlet-name>
+        <url-pattern>/Timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateCheckattend</servlet-name>
+        <url-pattern>/UpdateCheckattend</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 </web-app>

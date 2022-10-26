@@ -30,25 +30,6 @@ public class GroupDAO extends DBContext {
 
     }
 
-    public ArrayList getAllTerm(String campus) {
-        ArrayList term = new ArrayList();
-        if (campus == null) {
-            campus = "";
-        }
-        try {
-            String sql = "  select  distinct Term,RIGHT(Term,4),SUBSTRING(Term, 3, 1)  from [Group] where Campus like ?  order by RIGHT(Term,4), SUBSTRING(Term, 3, 1) desc  ";
-            PreparedStatement stm = connection.prepareStatement(sql);
-            stm.setString(1, "%" + campus + "%");
-            ResultSet rs = stm.executeQuery();
-            while (rs.next()) {
-                term.add(rs.getString(1));
-            }
-        } catch (Exception e) {
-        }
-        return term;
-
-    }
-
     public ArrayList getAllDep(String term) {
         ArrayList camp = new ArrayList();
         if (term == null) {
