@@ -41,29 +41,29 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="width:5%">No</th>
-                                <th style="width:5%">Group</th>
-                                <th style="width:10%">Code</th>
-                                <th style="width:12.5%">Name</th>
-                                <th style="width:12.5%">Image</th>
-                                <th style="width:5%">Status</th>
-                                <th style="width:10%">Commnent</th>
-                                <th style="width:10%">Taker</th>
-                                <th style="width:30%">RecordTime</th>
+                                <th >No</th>
+                                <th >Group</th>
+                                <th >Code</th>
+                                <th >Name</th>
+                                <th >Image</th>
+                                <th >Status</th>
+                                <th >Commnent</th>
+                                <th >Taker</th>
+                                <th >RecordTime</th>
                             </tr>
                         </thead>
                         <tbody>
                                 <c:forEach var="ck" items="${cklist}">
                                 <tr>
-                                    <td style="width:5%">${ck.getStudent().getId()}</td>
-                                    <td style="width:10%">${s.getGroup().getCode()}</td>
-                                    <td style="width:10%">${ck.getStudent().getCode()}</td>
-                                    <td style="width:12.5%">${ck.getStudent().getName()}</td>
-                                    <td style="width:12.5%"><img src="${ck.getStudent().getImg()}" width="150px"></td>
-                                    <td style="width:5%"><input type="checkbox" class="form-check" ${ck.isCheck()?"checked":""} name="${ck.getStudent().getCode()}"></d>
-                                    <td style="width:15%"></td>
-                                    <td style="width:5%">${s.getGroup().getInstructor().getUserName()}</td>    
-                                    <td style="width:30%">${ck.getRecordtime()}</td>
+                                    <td >${ck.getStudent().getId()}</td>
+                                    <td >${s.getGroup().getCode()}</td>
+                                    <td >${ck.getStudent().getCode()}</td>
+                                    <td >${ck.getStudent().getName()}</td>
+                                    <td ><img src="${ck.getStudent().getImg()}" width="150px"></td>
+                                    <td ><input type="checkbox" class="form-check" ${ck.isCheck()?"checked":""} name="${ck.getStudent().getCode()}"></d>
+                                    <td ></td>
+                                    <td >${s.getGroup().getInstructor().getUserName()}</td>    
+                                    <td >${ck.getRecordtime()}</td>
                                 </tr>
                             </c:forEach>
 
@@ -74,8 +74,6 @@
 
             </div>
         </div>
-
-
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
