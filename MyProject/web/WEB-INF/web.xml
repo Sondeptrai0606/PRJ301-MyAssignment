@@ -45,8 +45,8 @@
         <url-pattern>/TeachingSchedule</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Timetable</servlet-name>
-        <url-pattern>/Timetable</url-pattern>
+        <servlet-name>TimeTable</servlet-name>
+        <url-pattern>/TimeTable</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateCheckattend</servlet-name>
