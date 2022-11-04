@@ -27,27 +27,28 @@ public class CheckAttendDAO extends DBContext {
             while (rs.next()) {
                 Slot s = new Slot();
                 s.setId(rs.getInt(2));
-                Student stu = new Student(rs.getInt(8), rs.getString(9), rs.getString(10), rs.getBoolean(11), rs.getString(12));
-                CheckAttendence c = new CheckAttendence(rs.getInt(1), s, rs.getBoolean(4), rs.getString(5), stu, rs.getString(6), rs.getString(7));
+                Student stu = new Student(rs.getInt(7), rs.getString(8), rs.getString(9), rs.getBoolean(10), rs.getString(11));
+                CheckAttendence c = new CheckAttendence(rs.getInt(1), s, rs.getBoolean(4), stu, rs.getString(5), rs.getString(6));
                 alist.add(c);
             }
         } catch (Exception e) {
+            System.out.println(e);
         }
         return alist;
     }
 
-    public void insertAttendance(int sid, int stid, int checkAttend, String comment, String taker) {
-        String sql = "INSERT [CheckAttedance] ( [SlotID], [SID], [CheckAttendance], [Comment], [Taker], [RecordTime]) \n"
-                + "VALUES ( ?, ?, ?, ?, ?, GETDATE())";
+    public void insertAttendance(int sid, int stid, int checkAttend, String taker) {
+        String sql = "INSERT [CheckAttedance] ( [SlotID], [SID], [CheckAttendance], [Taker], [RecordTime]) \n"
+                + "VALUES ( ?, ?, ?,  ?, GETDATE())";
         try {
             PreparedStatement stm = connection.prepareStatement(sql);
             stm.setInt(1, sid);
             stm.setInt(2, stid);
             stm.setInt(3, checkAttend);
-            stm.setString(4, comment);
-            stm.setString(5, taker);
+            stm.setString(4, taker);
             stm.executeUpdate();
         } catch (Exception e) {
+            System.out.println(e);
         }
     }
     public void deleteSlot(int sid){

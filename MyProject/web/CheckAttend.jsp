@@ -45,7 +45,6 @@
                                 <th style="width:17.5%">Name</th>
                                 <th style="width:12.5%">Image</th>
                                 <th style="width:5%">Status</th>
-                                <th style="width:10%">Commnent</th>
                                 <th style="width:10%">Taker</th>
                                 <th style="width:25%">RecordTime</th>
                             </tr>
@@ -61,7 +60,6 @@
                                 <td style="width:12.5%">${stu.getName()}</td>
                                 <td style="width:12.5%"><img src="${stu.getImg()}" width="150px"></td>
                                 <td style="width:5%"><input type="checkbox" class="form-check" name="${stu.getCode()}"></d>
-                                <td style="width:15%"></td>
                                 <td style="width:5%">${s.getGroup().getInstructor().getUserName()}</td>    
                                 <td style="width:30%"></td>
                             </tr>

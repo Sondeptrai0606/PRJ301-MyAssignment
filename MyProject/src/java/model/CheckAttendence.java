@@ -12,16 +12,14 @@ public class CheckAttendence {
      int id;
     Slot slot;
     boolean check;
-    String comment;
     Student student;
     String taker;
     String recordtime;
 
-    public CheckAttendence(int id, Slot slot, boolean check, String comment, Student student, String taker, String recordtime) {
+    public CheckAttendence(int id, Slot slot, boolean check, Student student, String taker, String recordtime) {
         this.id = id;
         this.slot = slot;
         this.check = check;
-        this.comment = comment;
         this.student = student;
         this.taker = taker;
         this.recordtime = recordtime;
@@ -66,15 +64,6 @@ public class CheckAttendence {
     public void setCheck(boolean check) {
         this.check = check;
     }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
     public String getTaker() {
         return taker;
     }

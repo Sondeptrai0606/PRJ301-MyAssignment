@@ -66,7 +66,7 @@ public class CheckAttend extends HttpServlet {
                 request.setAttribute("cklist", cklist);
                 request.setAttribute("stulist", stulist);
                 request.setAttribute("s", s);
-                request.getRequestDispatcher("Checked.jsp").forward(request, response);
+                request.getRequestDispatcher("UpdateChecking.jsp").forward(request, response);
             }
 
         } catch (Exception e) {
@@ -118,12 +118,10 @@ public class CheckAttend extends HttpServlet {
                 checkstatus = 1;
             }
             response.getWriter().println(student.getCode() + "-" + checkbox);
-            cadao.insertAttendance(Integer.valueOf(slotid), student.getId(), checkstatus, "", instructorid);
+            cadao.insertAttendance(Integer.valueOf(slotid), student.getId(), checkstatus, instructorid);
         }
         sdao.updateStatus(Integer.valueOf(slotid));
         response.sendRedirect("TeachingSchedule");
-
-//        processRequest(request, response);
     }
 
     /**

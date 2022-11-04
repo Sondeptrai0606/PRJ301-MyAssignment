@@ -51,7 +51,7 @@ public class UpdateCheckattend extends HttpServlet {
                 checkstatus = 1;
             }
             response.getWriter().println(student.getCode() + "-" + checkbox);
-            cadao.insertAttendance(Integer.valueOf(slotid), student.getId(), checkstatus, "", instructorid);
+            cadao.insertAttendance(Integer.valueOf(slotid), student.getId(), checkstatus, instructorid);
         }
         response.sendRedirect("TeachingSchedule");
     }
