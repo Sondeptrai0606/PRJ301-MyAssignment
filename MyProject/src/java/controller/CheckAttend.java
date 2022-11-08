@@ -111,14 +111,9 @@ public class CheckAttend extends HttpServlet {
 
         for (Student student : stulist) {
             String checkbox = request.getParameter(String.valueOf(student.getCode()));
-            int checkstatus = 0;
-            if (checkbox == null) {
-                checkstatus = 0;
-            } else {
-                checkstatus = 1;
-            }
+
             response.getWriter().println(student.getCode() + "-" + checkbox);
-            cadao.insertAttendance(Integer.valueOf(slotid), student.getId(), checkstatus, instructorid);
+            cadao.insertAttendance(Integer.valueOf(slotid), student.getId(), Integer.valueOf(checkbox), instructorid);
         }
         sdao.updateStatus(Integer.valueOf(slotid));
         response.sendRedirect("TeachingSchedule");

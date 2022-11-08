@@ -1,4 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,47 +14,29 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Check Attedance </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="TeachingSchedule">Schedule </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="GroupStudent">Display Group</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <h1  style="text-align: center;">Time Table</h1>
         <div class="container">
             <form method="get" action="TeachingSchedule" class="viewTimeTable">
-                <div> Campus: 
+                <div style="margin-left: 45px; margin-bottom: 10px; margin-top: 10px;"> Campus:  
                     <select name="campus" required>
                         <c:forEach var="c" items="${clist}" >
                             <option value="${c}">${c}</option>
                         </c:forEach>
-                    </select><br>
-                </div>
-                <div>
+                    </select> 
                     Lecture: <input type="text" name="lecture" required>     
                     <input type="submit" value="View">
                 </div>
             </form>
             <div class="row">
-                <table class="table table-bordered ">
-                    <thead class="bg-primary">
+                <table class="table  ">
+                    <thead >
                         <tr>
                             <th>Slot</th>
-                            <th>Date </th>
-                            <th>Group</th>
-                            <th>Subject </th>
-                            <th>Room</th>
-                            <th>Status</th>
+                            <th>Ngày </th>
+                            <th>Lớp</th>
+                            <th>Mã môn </th>
+                            <th>Phòng</th>
+                            <th>Trạng thái</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -67,8 +51,8 @@
                                 <td style="width: 16%;">${s.isStatus()?"<p style='color:green;'>Attend</p>":"<p style='color:red;'>Not yet</p>"}</td>
                                 <c:if test="${s.isStatus()}">
                                     <th><a href="CheckAttend?sid=${s.getId()}&status=${s.isStatus()}">View</a></th>
-                                </c:if>
-                                <c:if test="${!s.isStatus()}">
+                                    </c:if>
+                                    <c:if test="${!s.isStatus()}">
                                     <th><a href="CheckAttend?sid=${s.getId()}&status=${s.isStatus()}">Check</a></th>
 
                                 </c:if>

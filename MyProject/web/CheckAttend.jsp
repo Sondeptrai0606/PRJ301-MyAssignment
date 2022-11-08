@@ -1,4 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,24 +15,7 @@
 
     <body>
         <c:set var = "i" scope = "page" value = "0"/>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Check Attedance </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="TeachingSchedule">Schedule </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="GroupStudent">Display Group</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
+        <h1 style="text-align: center;">Check Attendence</h1>
         <div class="container">
             <h1>Single Activity Attendance</h1>
             <p >Attendance for <b>${s.getGroup().getSubject().getCode()}</b> with Lecturer <b>${s.getGroup().getInstructor().getUserName()}</b> at Slot <b>${s.getSlot()}</b> on Day <b>${s.getDate()}</b> in Room <b>${s.getRoom().getCode()}</b> at ${s.getGroup().getCampus()}</p>
@@ -39,29 +24,29 @@
                     <table class="table"  >
                         <thead>
                             <tr>
-                                <th style="width:5%">No</th>
-                                <th style="width:5%">Group</th>
-                                <th style="width:10%">Code</th>
-                                <th style="width:17.5%">Name</th>
-                                <th style="width:12.5%">Image</th>
-                                <th style="width:5%">Status</th>
-                                <th style="width:10%">Taker</th>
-                                <th style="width:25%">RecordTime</th>
+                                <th style="width:5%">STT</th>
+                                <th style="width:5%">Mã Lớp</th>
+                                <th style="width:10%">MSSV</th>
+                                <th style="width:15%">Họ và tên</th>
+                                <th style="width:10%">Ảnh</th>
+                                <th style="width:25%">Trạng thái</th>
+                                <th style="width:10%">Người điểm danh</th>
+                                <th style="width:15%">Thời gian cập nhật</th>
                             </tr>
                         </thead>
                         <tbody>
                         <input name="sid" value="${param['sid']}" type="hidden">
                         <input name="instructorid" value="${s.getGroup().getInstructor().getId()}" type="hidden">
-                        <c:forEach var="stu" items="${stulist}">
+                        <c:forEach var="stu" items="${stulist}" varStatus="x">
                             <tr>
-                                <td style="width:5%">${stu.getId()}</td>
-                                <td style="width:10%">${s.getGroup().getCode()}</td>
-                                <td style="width:10%">${stu.getCode()}</td>
-                                <td style="width:12.5%">${stu.getName()}</td>
-                                <td style="width:12.5%"><img src="${stu.getImg()}" width="150px"></td>
-                                <td style="width:5%"><input type="checkbox" class="form-check" name="${stu.getCode()}"></d>
-                                <td style="width:5%">${s.getGroup().getInstructor().getUserName()}</td>    
-                                <td style="width:30%"></td>
+                                <td >${x.index+1}</td>
+                                <td >${s.getGroup().getCode()}</td>
+                                <td >${stu.getCode()}</td>
+                                <td >${stu.getName()}</td>
+                                <td ><img src="${stu.getImg()}" width="150px"></td>
+                                <td ><input type="radio" value="1" name="${stu.getCode()}">attend <input type="radio" name="${stu.getCode()}" checked="" value="0">absent </td>
+                                <td >${s.getGroup().getInstructor().getUserName()}</td>    
+                                <td ></td>
                             </tr>
                         </c:forEach>
                         <input style="position: absolute; bottom: 5px; right: 0;" type="submit" value="Submit" style="align-items: flex-end" class="btn btn-primary">
